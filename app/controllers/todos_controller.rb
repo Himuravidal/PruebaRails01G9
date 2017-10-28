@@ -1,21 +1,25 @@
 class TodosController < ApplicationController
+
+def index
+@todos = Todo.all
 end
 
 def new
-  @todos = Todo.new
-end
-
-def index
-
+  @todo = Todo.new
 end
 
 def create
-  todos = Todo.new(params:[todo_params])
-  redirect_to todo_index_path
+  @todo = Todo.new(todo_params)
+  @todo.save
+  redirect_to todos_path
 end
 
-private
+def show
+end
 
-def todo_params
-  params.require(:todo).permit(:detail, :completed)
+  private
+   def todo_params
+     params.require(:todo).permit(:description, :completed)
+   end
+
 end

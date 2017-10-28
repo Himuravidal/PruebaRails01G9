@@ -9,8 +9,8 @@
     <h1>Ingresa un TO-DO</h1>
 <%= form_with model: @todo, url: todos_path, local: true do |f| %>
 
-<%= label_tag "Detalles de la venta" %>
-<%= f.text_area :detail %>
+<%= label_tag "Título TO-DO" %>
+<%= f.text_area :description %>
 
 <%= f.label :completed, "Completado" %>
 <%= f.check_box :completed %>

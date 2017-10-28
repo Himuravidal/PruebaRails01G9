@@ -5,9 +5,10 @@
     <title>Index</title>
   </head>
   <body>
+    <%= @todos.each do |todo| %>
 
-    <div class="well"> <%= @todos %> </div>
-
+    <div class="well"> <%=todo.completed%> <%=todo.description%> </div>
+    <% end %>
     <%= link_to'Crear TO-DO', todos_new_path %>
   </body>
 </html>
