@@ -6,9 +6,8 @@
   </head>
   <body>
     <%= @todos.each do |todo| %>
-
-    <div class="well"> <%=todo.completed%> <%=todo.description%> </div>
+    <div class="well"> <%=todo.completed%> <%= link_to todo.description, todo %> </div>
     <% end %>
-    <%= link_to'Crear TO-DO', todos_new_path %>
+    <%= link_to'Crear TO-DO', new_todo_path %>
   </body>
 </html>
