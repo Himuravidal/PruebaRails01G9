@@ -5,9 +5,21 @@
     <title>Index</title>
   </head>
   <body>
-    <%= @todos.each do |todo| %>
-    <div class="well"> <%=todo.completed%> <%= link_to todo.description, todo %> <%= link_to "edit", edit_path(todo) %> <%= link_to "Delete", todo, method: :delete %></div>
+    <% @todos.each do |todo| %>
+    <div class="well">
+      <!-- <%= check_box_tag 'completed',todo.id , todo.completed, :class => "todo-check" %> -->
+
+      <%= check_box_tag 'completed', todo.id, todo.completed,
+      data: {
+        remote: true,
+        url: url_for(action: :completed, id: todo.id),
+        method: "POST"
+      } %>
+      <!-- <%= check_box_tag 'todo_id[]', '1', todo.completed %> -->
+       <%= link_to todo.description, todo %> <%= link_to "edit", edit_path(todo) %> <%= link_to "Delete", todo, method: :delete %></div>
+
     <% end %>
+
     <%= link_to'Crear TO-DO', todos_new_path %>
   </body>
 </html>

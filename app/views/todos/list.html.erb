@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>List</title>
+  </head>
+  <body>
+
+    <div class="col-md-6">
+      <h1>To-Do Completados</h1>
+      <% @todos.each do |todo| %>
+      <% if todo.completed%>
+      <div class="well">
+        <%= todo.description %>
+      </div>
+      <%end%>
+
+      <%end%>
+    </div>
+
+    <div class="col-md-6">
+      <h1>To-Do Faltantes</h1>
+      <% @todos.each do |todo| %>
+      <% if todo.completed == false%>
+      <div class="well">
+        <%= todo.description %>
+      </div>
+      <%end%>
+
+      <%end%>
+    </div>
+
+  </body>
+</html>
