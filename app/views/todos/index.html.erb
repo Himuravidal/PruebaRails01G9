@@ -6,22 +6,35 @@
   </head>
   <body>
     <% @todos.each do |todo| %>
-    <div class="well">
-      <!-- <%= check_box_tag 'completed',todo.id , todo.completed, :class => "todo-check" %> -->
+    <div class="well well-lg">
 
-      <%= check_box_tag 'completed', todo.id, todo.completed,
-      data: {
-        remote: true,
-        url: url_for(action: :completed, id: todo.id),
-        method: "POST"
-      } %>
+      <div class="col-md-2">
+        <%= check_box_tag 'completed', todo.id, todo.completed,
+        data: {
+          remote: true,
+          url: url_for(action: :completed, id: todo.id),
+          method: "POST"
+        } %>
+      </div>
+
+      <div class="col-md-6">
+      <%= link_to todo.description, todo %>
+    </div>
 
 
-      <!-- <%= check_box_tag 'todo_id[]', '1', todo.completed %> -->
-       <%= link_to todo.description, todo %> <%= link_to "edit", edit_path(todo) %> <%= link_to "Delete", todo, method: :delete %></div>
+      <button type="button" name="button" class="btn btn-success">
+        <%= link_to "edit", edit_path(todo) %></button>
+      <button type="button" name="button" class="btn btn-danger">
+        <%= link_to "Delete", todo, method: :delete %>
+      </button>
+
+
+    </div>
 
     <% end %>
-
-    <%= link_to'Crear TO-DO', todos_new_path %>
+    <button type="button" name="button" class="btn btn-primary">
+      <%= link_to'Crear TO-DO', todos_new_path %></button>
+    <!-- <%= link_to'Crear TO-DO', todos_new_path %> -->
   </body>
 </html>
+<h2></h2>
