@@ -7,16 +7,13 @@
   <body>
 
     <h1>Ingresa un TO-DO</h1>
-<%= form_with model: @todo, url: todos_path, local: true do |f| %>
-
-<%= label_tag "Título TO-DO" %>
-<%= f.text_area :description %>
-
-<%= f.label :completed, "Completado" %>
-<%= f.check_box :completed %>
-
-<%= f.submit "Enviar" %>
-<% end %>
+    <%= form_with model: @todo, local: true do |f| %>
+    <%= f.label :description, "Descripcion del TO-DO" %>
+    <%= f.text_field :description %>
+    <%= f.label :completed, "Completado?" %>
+    <%= f.text_area :completed %>
+    <%= f.submit "Enviar" %>
+    <% end %>
 
 
   </body>
