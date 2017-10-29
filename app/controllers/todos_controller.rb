@@ -35,10 +35,7 @@ class TodosController < ApplicationController
 
   def completed
     @todo = Todo.find(params[:id])
-    if @todo.update_attributes(:completed => params[:completed])
-    # ... update successful
-    else
-    # ... update failed
+    if @todo.update_attributes(completed: params[:completed])
     end
     redirect_to todos_path
   end

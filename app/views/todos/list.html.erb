@@ -9,7 +9,7 @@
     <div class="col-md-6">
       <h1>To-Do Completados</h1>
       <% @todos.each do |todo| %>
-      <% if todo.completed%>
+      <% if todo.completed == true%>
       <div class="well">
         <%= todo.description %>
       </div>
@@ -21,7 +21,7 @@
     <div class="col-md-6">
       <h1>To-Do Faltantes</h1>
       <% @todos.each do |todo| %>
-      <% if todo.completed == false%>
+      <% if todo.completed == false or todo.completed == nil%>
       <div class="well">
         <%= todo.description %>
       </div>
