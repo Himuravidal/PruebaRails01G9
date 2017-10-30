@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  match 'todos/list', :controller => 'todos', :action => 'list', via: :get
-  # resources :todos
+
+  get 'todos/list'
   get 'todos', to: 'todos#index'
   get 'todos/new', to: 'todos#new'
   post 'todos', to: 'todos#create'

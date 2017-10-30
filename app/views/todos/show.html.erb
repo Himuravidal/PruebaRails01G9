@@ -5,16 +5,26 @@
     <title>Details</title>
   </head>
   <body>
-
-    <h1>
-      <%= @todo.description %>
-    </h1>
-    <p>
-      <%= @todo.completed %>
-    </p>
-    <p>
-      <%= time_ago_in_words @todo.created_at %>
-    </p>
-
+    <div class="container">
+      <div class="well">
+        <h2>
+          <%= @todo.description %>
+        </h2>
+        <h3>
+          To-Do:
+          <% if @todo.completed == false or @todo.completed == nil%>
+          Not done
+        </h3>
+        <h3>
+          <%else %>
+          Done
+        </h2>
+        <%end%>
+        <h3>
+          Create at :
+          <%= time_ago_in_words @todo.created_at %>
+        </h3>
+      </div>
+    </div>
   </body>
 </html>

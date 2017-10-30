@@ -31,6 +31,8 @@ class TodosController < ApplicationController
 
   def completed
     if @todo.update_attributes(completed: params[:completed])
+    else
+      @todo.completed == false
     end
     redirect_to todos_path
   end
